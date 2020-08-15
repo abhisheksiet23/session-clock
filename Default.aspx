@@ -8,11 +8,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <title>Session Clock Demo</title>
+
+    <style type="text/css">
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial;
+            margin: 0;
+        }
+
+        .header {
+            padding: 60px;
+            text-align: center;
+            background: #1abc9c;
+            color: white;
+        }
+
+        .row, .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .side {
+            flex: 30%;
+            padding: 20px;
+        }
+
+        .main {
+            flex: 30%;
+            padding: 20px;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 5px;
+            text-align: center;
+            background: #ddd;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <span  id="lblSessionTime"></span>
+        <div class="header">
+            <h1>Session Clock</h1>
+            A pure javascript utility to display remaining session time.
+        </div>
+        <div class="container">
+            <div class="side">
+                <span id="lblSessionTime"></span>
+            </div>
+            <div class="main">
+                <p>1. Include these two files</p>
+                <p><code>&lt;script src=&quot;js/core.js&quot;&gt;&lt;/script&gt;</code></p>
+                <p><code>&lt;script src=&quot;js/KeepSessionAlive.js&quot;&gt;&lt;/script&gt;</code></p>
+                <br />
+                <p>2. Add the following listeners as required</p>
+                <p><code>document.addEventListener(&#39;SessionClock_TickEvent&#39;, callback);</code></p>
+                <p><code>document.addEventListener(&#39;SessionClock_WarningEvent&#39;, callback);</code></p>
+                <p><code>document.addEventListener(&#39;SessionClock_SessionExpiredEvent&#39;, callback);</code></p>
+            </div>
+        </div>
+        <div class="footer">
+            <p>MIT License</p>
         </div>
     </form>
 

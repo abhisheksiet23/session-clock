@@ -43,18 +43,18 @@ function raiseSessionClockTickEvent() {
     core.logger.log(LogLevels.info, 'Session Clock Tick event raised. formatted time = ' + sessionTimer.getTime());
 }
 
+function raiseSessionWarningEvent() { 
+    document.dispatchEvent(new CustomEvent('SessionClock_WarningEvent', {
+        detail: { time: sessionTimer.time, formattedTime: sessionTimer.getTime() }, bubbles: true
+    }));
+    core.logger.log(LogLevels.info, 'Session Clock Warning event raised. formatted time = ' + sessionTimer.getTime());
+}
+
 function raiseSessionExpiredEvent() {
     document.dispatchEvent(new CustomEvent('SessionClock_SessionExpiredEvent', {
         detail: {}, bubbles: true
     }));
     core.logger.log(LogLevels.info, 'Session Clock Session Expired event raised.');
-}
-
-function raiseSessionWarningEvent() { //showSessionWarningPopUp
-    document.dispatchEvent(new CustomEvent('SessionClock_WarningEvent', {
-        detail: { time: sessionTimer.time, formattedTime: sessionTimer.getTime() }, bubbles: true
-    }));
-    core.logger.log(LogLevels.info, 'Session Clock Warning event raised. formatted time = ' + sessionTimer.getTime());
 }
 
 var sessionTimer = null;
